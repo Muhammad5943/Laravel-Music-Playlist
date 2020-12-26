@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function(){
 
         Route::get('/{band:slug}/edit', [BandController::class, 'edit'])->name('bands.edit');
         Route::put('/{band:slug}/edit', [BandController::class, 'update']);
+
+        Route::delete('/{band:slug}/delete', [BandController::class, 'destroy'])->name('bands.delete');
     });
 
 });

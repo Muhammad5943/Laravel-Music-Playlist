@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('content')
-    <table class="table table-stripped">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>#</th>
@@ -18,11 +18,12 @@
                     <td>{{ $band->genres()->get()->implode('name', ', ') }}</td>
                     <td>
                         <a href="{{ route('bands.edit', $band->slug ) }}" class="btn btn-primary">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <div endpoint="{{ route('bands.delete', $band) }}" class="delete d-inline"></div>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
     {{ $bands->links() }}
+
 @endsection
