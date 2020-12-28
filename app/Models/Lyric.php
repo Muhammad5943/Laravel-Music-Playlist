@@ -11,8 +11,17 @@ class Lyric extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $guarded = [
+        'id'
+    ];
+
     public function album()
     {
         return $this->belongsTo(Album::class);
+    }
+
+    public function band()
+    {
+        return $this->belongsTo(Band::class);
     }
 }

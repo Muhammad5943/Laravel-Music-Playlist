@@ -37,3 +37,9 @@
     <a href="{{ route('lyrics.table') }}" class="list-group-item list-group-item-action">Table</a>
   </div>
 </div>
+
+<div class="mb-4">  
+  <div class="list-group">
+    <a href="{{ route('home') }}" class="list-group-item list-group-item-action text-center" style="background-color: crimson; color: aliceblue">Exit</a>
+  </div>
+</div>

@@ -45,6 +45,9 @@ Route::middleware('auth')->group(function(){
         Route::put('{album:slug}/edit', [AlbumController::class, 'update']);
 
         Route::delete('{album:slug}/delete', [AlbumController::class, 'destroy'])->name('albums.delete');
+
+        // API
+        Route::get('/get-album-by-{band}', [AlbumController::class, 'getAlbumsByBandId']);
     });
 
     Route::prefix('genres')->group(function() {

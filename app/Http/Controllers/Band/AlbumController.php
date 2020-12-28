@@ -66,6 +66,12 @@ class AlbumController extends Controller
         return redirect()->route('albums.table')->with('status','Album was updated');
     }
 
+    // ini adalah sebuah API
+    public function getAlbumsByBandId(Band $band)
+    {
+        return $band->albums;
+    }
+
     public function destroy(Album $album)
     {
         $album->delete();
