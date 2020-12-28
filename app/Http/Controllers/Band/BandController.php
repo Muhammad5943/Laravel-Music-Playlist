@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Band;
 
-use App\Models\Band;
-use App\Models\Genre;
+use App\Models\{Band, Genre};
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Band\BandRequest;
 use Illuminate\Support\Facades\Storage;
 
 class BandController extends Controller
@@ -22,15 +22,8 @@ class BandController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(BandRequest $request)
     {
-        $request->validate([
-            // dd($request->genres)
-            'name' => 'required|string|unique:bands,name',
-            'thumbnail' => request('thumbnail') ? 'image|mimes:jpeg,png,gif,jpg' : '',
-            'genres' => 'required|array'
-        ]);
-
         $band = Band::create([
             'name' => $request->name,
             'slug' => Str::slug(request('name')),
@@ -45,7 +38,7 @@ class BandController extends Controller
     public function table()
     {
         return view('bands.table', [
-            'bands' => Band::latest()->paginate(15),
+            'bands' => Band::latest()->paginate(16),
         ]);
     }
 
@@ -60,15 +53,8 @@ class BandController extends Controller
         ]);
     }
 
-    public function update(Band $band, Request $request)
+    public function update(Band $band, BandRequest $request)
     {
-        $request->validate([
-            // dd($request->genres)
-            'name' => 'required|string|unique:bands,name,'. $band->id,
-            'thumbnail' => request('thumbnail') ? 'image|mimes:jpeg,png,gif,jpg' : '',
-            'genres' => 'required|array'
-        ]);
-
         if (request('thumbnail')) {
 
             Storage::delete($band->thumbnail);
@@ -97,9 +83,9 @@ class BandController extends Controller
 
     public function destroy(Band $band)
     {
-        dd($band);
         Storage::delete($band->thumbnail);
         $band->genres()->detach();
+        $band->albums()->delete();
         $band->delete();
     }
 }

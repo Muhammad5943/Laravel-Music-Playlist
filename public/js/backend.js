@@ -54994,6 +54994,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 __webpack_require__(/*! ./components/Delete */ "./resources/js/components/Delete.js");
 
+__webpack_require__(/*! ./components/lyrics/Create */ "./resources/js/components/lyrics/Create.js");
+
 /***/ }),
 
 /***/ "./resources/js/components/Delete.js":
@@ -55036,7 +55038,7 @@ function Delete(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     onClick: destroy,
-    className: "btn btn-danger"
+    className: "btn btn-danger btn-sm"
   }, "Delete");
 }
 
@@ -55051,6 +55053,17 @@ if (document.querySelectorAll('.delete')) {
     }), item);
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/lyrics/Create.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/lyrics/Create.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/home/muhammad/apps/Learn_laravel/learn-projectl8/resources/js/components/lyrics/Create.js'");
 
 /***/ }),
 

@@ -11,6 +11,10 @@ class Album extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $guarded = [
+        'id'
+    ];
+
     public function band()
     {
         return $this->belongsTo(Band::class);

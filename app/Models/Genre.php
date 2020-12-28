@@ -10,6 +10,10 @@ class Genre extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    
+    protected $guarded = [
+        'id'
+    ];
 
     public function bands()
     {
