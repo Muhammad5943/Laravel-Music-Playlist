@@ -1,4 +1,3 @@
-import Axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import swal from 'sweetalert';
@@ -10,14 +9,16 @@ function Delete(props) {
         swal("Are You Sure?", {
             buttons: ["No", "Yes"]
         }).then((value) => {
-            if (value == true) {
-                
-                axios.delete(props.endpoint).then((response) => {
-                    // console.log(response.data);
-                    afterDeleted.remove()
-                })
+            afterDeleted.remove()
             
-            }
+            // if (value == true) {
+                
+            //     axios.delete(props.endpoint).then((response) => {
+            //         // console.log(response.data);
+            //         afterDeleted.remove()
+            //     })
+            
+            // }
         });
     }
     return (

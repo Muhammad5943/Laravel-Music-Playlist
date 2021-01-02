@@ -30,9 +30,18 @@ class GenreController extends Controller
     public function table()
     {
         return view('genres.table', [
-            'genres' => Genre::latest()->paginate(10),
+            'genres' => Genre::withCount('bands')->latest()->paginate(10),
             'title' => 'All Music Genre'
             ]);
+    }
+
+    public function show(Genre $genre)
+    {
+        return view('genres.show', [
+            "title" => $genre->name,
+            "genre" => $genre,
+            "bands" => $genre->bands()->latest()->paginate(16)
+        ]);
     }
 
     public function edit(Genre $genre)

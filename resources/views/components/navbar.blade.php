@@ -10,7 +10,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                
+            </ul>
 
+            <!-- Left Side Of Navbar -->
+            <ul class="navbar-nav align-item-between">
+                <form class="d-flex" method="GET" action="{{ route('search') }}">
+                    <input class="form-control me-2" type="search" name="keyword" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
             </ul>
 
             <!-- Right Side Of Navbar -->

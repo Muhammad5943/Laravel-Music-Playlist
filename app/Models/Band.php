@@ -15,9 +15,24 @@ class Band extends Model
         'id'
     ];
 
+    /* public function picture()
+    {
+        return asset("storage/". $this->thumbnail);
+    } used when we coll it to the blade or ui using "$band->picture()" */
+
+    public function getPictureAttribute()
+    {
+        return asset("storage/". $this->thumbnail);
+    }
+
     public function albums()
     {
         return $this->hasMany(Album::class);
+    }
+
+    public function album()
+    {
+        return $this->hasOne(Album::class)->latest();
     }
 
     public function lyrics()

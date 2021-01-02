@@ -40,6 +40,6 @@
 
 <div class="mb-4">  
   <div class="list-group">
-    <a href="{{ route('home') }}" class="list-group-item list-group-item-action text-center" style="background-color: crimson; color: aliceblue">Exit</a>
+    <a href="{{ route('home') }}" class="list-group-item list-group-item-action text-center" style="background-color: green; color: aliceblue">Home</a>
   </div>
 </div>
